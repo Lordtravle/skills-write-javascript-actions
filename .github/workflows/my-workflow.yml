@@ -11,20 +11,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-
-      # 1. Configurar Node.js (Necesario para ejecutar npm)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20' # Usa la misma versión que usa tu acción
-
-      # 2. Instalar las dependencias de la acción (La clave para la Opción 2)
-      - name: Install Joke Action Dependencies
-        run: npm install
-        # Asegúrate de que npm install se ejecute dentro del directorio de la acción.
-        # Esto instalará 'request-promise' en el 'node_modules' correcto.
-        working-directory: ./.github/actions/joke-action
-
-      # 3. Ejecutar la acción (Ahora con las dependencias instaladas)
       - name: ha-ha
         uses: ./.github/actions/joke-action
